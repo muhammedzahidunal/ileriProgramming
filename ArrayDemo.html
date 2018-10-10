@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Add Course </title>
+</head>
+
+<script>
+"use strict";
+function add() {
+    let Name = name.value; let Midterm = mt.value; let Final= f.value;
+    xe.value = a[i]; a[i] = x; reportA("a["+i+"] = "+x);
+}
+function print() {
+    let i = Number(ie.value);
+    xe.value = a[i]; a.splice(i, 1); reportA("remove "+i);
+}
+function avg() {
+    let x = xe.value; let i = Number(ie.value);
+    a.push(x); reportA("push "+x);
+}
+function max() {
+    xe.value = a.pop(); reportA("pop ");
+}
+function reportA(str) {
+    outA.innerText = "a = [ "+ a.join(", ")+" ] "+a.length;
+    console.log(str);
+}
+</script>
+
+<body>
+<h2 id=title></h2>
+
+<p id=outA></p>
+<p>
+Name= <input type=text id=name value=""  style="width:99px"> &emsp; 
+Midterm= <input type=text   id=mt value="" style="width:99px"> 
+<p></p>
+Final= <input type=text   id=f value="" style="width:99px"> 
+</p><p>
+<input type=button value="Add"  onClick="add()">
+<input type=button value="Print"  onClick="print()">
+<input type=button value="Avg"  onClick="avg()">
+<input type=button value="Max"   onClick="max()">
+</p>
+
+<hr />
+<p>Ref: 
+<a href="https://www.w3schools.com/js/js_arrays.asp" target="ExternalDocument">Array Examples</a></p>
+<p>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections" target="ExternalDocument">Set Examples</a>
+</p>
+
+<script>
+    title.innerText = document.title;
+    const a = [234, "abc", "son"];  //initially
+    reportA("start");
+</script>
+
+</body>
+</html>
