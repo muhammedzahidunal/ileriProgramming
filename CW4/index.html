@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://maeyler.github.io/JS/sss/inspector.css" 
+          rel="stylesheet" media="all">
+    <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
+    
+    <script src="database.js"></script>
+    <title>Eloquent JavaScript </title>
+</head>
+
+<body>
+<p><b id=docName></b> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/">Read me</a> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/Turkish">Turkish</a>
+</p>
+
+<script>
+
+function init() {
+    
+    display(MENU); 
+    display(new CW4());
+    
+    display(MENU);
+}
+    docName.innerText = "Inspector "+VERSION;
+    try {
+        inspect(document.body, init); //makes the table
+        //inp.value = "new Number(c.pi)";
+    } catch(e) {
+        reportError(e);
+    }
+</script>
+
+<p><input type=file multiple onChange='fileSelect(this)' />
+</p><p>
+<div class="links">
+        <h3>Class Works</h3>
+        <ul>
+            <li><a href="https://muhammedzahidunal.github.io/ileriProgramming/ArrayDemo_m.zahidunal.html" target="_blank">Array Methods</a>
+                (Week 2)</li>
+            <li><a href="https://muhammedzahidunal.github.io/ileriProgramming/data_analiseCW3/inspector.html" target="_blank">Objects</a> (Week
+                3)</li>
+        </ul>
+        <h3>Home Works</h3>
+        <ul>
+            <li><a href="https://muhammedzahidunal.github.io/ileriProgramming/HW1Array.html" target="_blank">Add Cours</a></li>
+            <li>Database</li>
+        </ul>
+    </div>
+	
+</p>
+<pre id=disp1></pre>
+<img id=disp2 />
+
+</body>
+</html>
