@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CW#5</title>
+</head>
+
+<script>
+"use strict";
+let fileTextt;
+function isText(f) {
+    console.assert(f instanceof File);
+    return f.type.startsWith("text") || f.name.endsWith(".md")
+         || f.name.endsWith(".js") || f.name.endsWith(".java");
+}
+
+
+function fileSelect(t) { //target is the button
+	readTxt();
+	out.innerText = "";
+	for (let i of t.files) {
+		var reader = new FileReader();
+		reader.onload = function(evt) {
+		let t = evt.target.result.replace(/\s/g, "");
+		console.log(t);
+		let f =fileTextt.replace(/\s/g, "");
+		if(t==f){
+		out.innerText = "All selected items checked, " +i.name + " has the same content";
+		}
+		else {
+		out.innerText = "All selected items checked, all files different";
+		}
+		};
+		
+		reader.readAsBinaryString(i);
+	
+		
+	}
+}
+
+
+function readTxt(){
+	fetch(url.value)
+	.then(dosya => dosya.text())
+	.then(dosya=> fileTextt=dosya)
+}
+</script>
+
+
+<body>
+<h2 id=title></h2>
+
+<input type=file id=button onChange='fileSelect(this)' multiple />
+<p>
+<input type=text id=url value="https://maeyler.github.io/BLM305/README.md" style=width:300px>
+<!--onChange="readText()"-->
+
+
+<input type=button id=state style="visibility: hidden">
+
+<output id=out></output>
+</p>
+
+
+<script>
+    title.innerText = document.title;
+</script>
+
+</body>
+</html>
