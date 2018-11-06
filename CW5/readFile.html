@@ -26,7 +26,7 @@ function fileSelect(t) { //target is the button
 		console.log(t);
 		let f =fileTextt.replace(/\s/g, "");
 		if(t==f){
-		out.innerText = "All selected items checked, " +i.name + " has the same content";
+		out.innerHTML = "All selected items checked, " +"<b>" +i.name+"</b>"+ " has the same content";
 		}
 		else {
 		out.innerText = "All selected items checked, all files different";
