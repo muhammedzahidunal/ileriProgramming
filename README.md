@@ -10,4 +10,4 @@
 
 5.[HW2 File Read](./HW2/Database.html)
 
-6.[HW5-fileRead](./CW5/readFile.html)
+6.[CW5-fileRead](./CW5/readFile.html)
