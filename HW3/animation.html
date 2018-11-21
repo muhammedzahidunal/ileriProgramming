@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+
+</head>
+
+<style>
+	#title {
+		
+	
+		color:rgb(109, 207, 10);
+	}
+	
+	#top {
+		width: 60px;
+		height: 60px;
+		position: relative;	
+		border-radius: 100px;
+	}
+
+	#cisim{
+	padding: 50px;
+    background-color:blue;
+    transition: transform .2s;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+	}
+	#cisim:hover{
+		transform: scale(1.5); 
+		background-color: cyan;
+	}
+
+</style>
+
+<body>
+	<h2 id=title>My Applications</h2>
+
+	Height= <input onchange="valueChanged()" type=Number id=y value="400" style="width:99px">
+	<p></p>
+
+	<img id=top src="ball.jpg" onclick="ballrebound(inpvalue, null);">
+
+	<div id="cisim" onclick="changeCisim()"></div>
+
+	<script>
+		var inpvalue = 400;
+		function valueChanged() {
+
+			inpvalue = parseInt(y.value);
+		}
+
+		var first = 0;
+		var orta = 0;
+		var durat = 1000;
+
+
+		function ballrebound(value, orta) {
+			if (value - orta < 1) {
+				first = 0;
+				orta = 0;
+				durat = 1000;
+				return null;
+			}
+			else {
+				orta = (value + first) / 2;
+
+				var top = document.getElementById("top");
+				top.animate([
+					{ transform: 'translateY(' + first + 'px)' },
+					{ transform: 'translateY(' + value + 'px)' },
+					{ transform: 'translateY(' + orta + 'px)' },
+
+				],
+					{
+						duration: durat,
+						easing: "ease-in-out"
+					});
+
+
+				first = orta;
+				setTimeout(() => {
+					ballrebound(value, orta);
+
+				}, durat);
+				durat = durat * 0.7;
+
+			}
+		}
+
+		function changeCisim() {
+			var cisim = document.getElementById("cisim");
+			cisim.animate([
+				{ transform: 'rotate(0deg)' },
+				{ transform: 'scale(0.5)' },
+				{ transform: 'rotate(90deg)' },
+				{ transform: 'scale(1.0)' },
+				{ transform: 'rotate(180deg)' },
+				{ transform: 'scale(1.5)' },
+				{ transform: 'rotate(270deg)' },
+			],
+				{
+					duration: 5000
+
+				});
+
+			cisim.animate(
+				{ background: ['cyan', 'yellow','cyan'] }
+			,
+				{
+					duration: 5000
+
+				});
+		}
+
+
+	</script>
+
+
+
+</body>
+
+</html>
