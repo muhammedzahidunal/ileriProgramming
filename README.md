@@ -13,3 +13,5 @@
 6.[CW5-fileRead](./CW5/readFile.html)
 
 7.[CW6](./CW6/Timing.html)
+
+8.[HW3 Animations](./HW3/animation.html)
