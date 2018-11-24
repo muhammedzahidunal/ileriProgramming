@@ -15,3 +15,5 @@
 7.[CW6](./CW6/Timing.html)
 
 8.[HW3 Animations](./HW3/animation.html)
+
+9.[CW7-Table](./CW7/CW7.html)
