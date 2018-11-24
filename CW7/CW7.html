@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CW7-Table</title>
+
+    <link rel="manifest" href="manifest.json">
+
+</head>
+
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('https://muhammedzahidunal.github.io/ileriProgramming/CW7/sw.js')
+        .then((reg) => { console.log('SW Registered', reg) })
+        .catch(console.log)
+    }
+    
+</script>
+
+<script>
+    "use strict";
+  
+    class Student {
+        constructor(sId, sName, sGpa) {
+            this.sId = sId || '';
+            this.sName = sName || '';
+            this.sGpa = sGpa || '';
+
+        }
+    }
+
+    function dataJsonRead() {
+        var url = "https://maeyler.github.io/JS/data/Students.txt";
+        fetch(url)
+            .then(res => res.text())
+            .then(res =>
+                writeTable(res)
+            )
+
+    }
+
+    function writeTable(dosya) {
+
+        let lines = dosya.split('\n');
+
+        var ogrenciler = []
+        var i=0;
+        for (var line of lines) {
+            let word = line.split('\t');
+            const student = new Student(word[0], word[1], word[2])
+            if (i<10){
+            ogrenciler.push(student);
+            }
+            i++;
+        }
+
+        var head = ["ID", "NAME", "GPA"];
+        let row = "";
+
+        for (let h = 0; h < head.length; h++) {
+            row += "<th>" + head[h] + "</th>";
+
+        }
+        let text = "<tr>" + row + "</tr>";
+
+        for (let o of ogrenciler) {
+
+            row = "<td>" + o.sId + "</td>";
+            row += "<td>" + o.sName + "</td>";
+            row += "<td>" + o.sGpa + "</td>";
+            text += "<tr>" + row + "</tr>";
+        }
+        tablo.innerHTML = text;
+    }
+
+
+</script>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th {
+        color: blue;
+        padding: 5px 5px;
+        border: 4px double mediumblue;
+    }
+
+    td {
+        border: 4px double blue;
+        padding: 5px 5px;
+        text-align: center;
+
+    }
+
+    td:hover .tip {
+        visibility: visible;
+    }
+
+    .tip {
+        visibility: hidden;
+        font-size: small;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        padding: 5px 5px;
+        position: absolute;
+    }
+</style>
+
+
+
+<body>
+
+    <h2 id=title>CW7-Table</h2>
+    <script>
+        dataJsonRead()
+    </script>
+
+    <table id="tablo"></table>
+
+    
+<p><a href="https://muhammedzahidunal.github.io/ileriProgramming/" target="ExternalDocument">
+    Repository</a></p>
+    
+    <p><a href="https://muhammedzahidunal.github.io/ileriProgramming/HW3/animation.html" target="ExternalDocument">
+    Homework3:</a> Animasyon Odevi</p>
+    
+
+</body>
+
+</html>
