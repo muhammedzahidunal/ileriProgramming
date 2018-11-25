@@ -1,14 +1,13 @@
 {
   "name": "Muhammed Zahid ÜNAL",
-  "description": "Advanced Programming work files",
   "start_url": https://muhammedzahidunal.github.io/ileriProgramming/index.html",
   "display": "standalone",
   "background_color": "cyan",
-  "theme_color": "cyan",
+ 
   "icons": [
     {
       "src": "myGithubicon.png",
-      "sizes": "598 × 373.750",
+      "sizes": "192×192",
       "type": "image/png"
     }
   ]
