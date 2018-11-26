@@ -1,6 +1,8 @@
 const CACHE ='JS'
-const FILES = ['/ileriPrograming/','/ileriPrograming/CW7/','/ileriPrograming/CW7/CW7.html'
-,'/ileriPrograming/HW3/','/ileriPrograming/HW3/animation.html']
+const FILES = ['/ileriPrograming/','/ileriPrograming/data_analiseCW3/inspector.html','/ileriPrograming/CW7/CW7.html',
+'/ileriPrograming/ArrayDemo_m.zahidunal.html','/ileriPrograming/HW3/animation.html','/ileriProgramming/CW4',
+'/ileriProgramming/CW5/readFile.html','/ileriProgramming/CW6/Timing.html','/ileriProgramming/HW1Array.html'
+,'/ileriProgramming/HW2/Database.html']
 function installCB(e) {
   e.waitUntil(
     caches.open(CACHE)
