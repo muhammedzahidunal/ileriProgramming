@@ -1,13 +1,14 @@
 {
   "name": "Muhammed Zahid ÜNAL",
-  "start_url": "https://muhammedzahidunal.github.io/ileriProgramming/index.html",
+  "short_name": "mzü",
+  "start_url": "/ileriProgramming/index.html",
   "display": "standalone",
   "background_color": "cyan",
- 
+  
   "icons": [
     {
-      "src": "JS.png",
-      "sizes": "192x192",
+      "src": "images/JS.png",
+      "sizes": "500x500",
       "type": "image/png"
     }
   ]
