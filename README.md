@@ -1,10 +1,10 @@
 # ileriProgramming
 
-1.[Array_Demo](./ArrayDemo_m.zahidunal.html)
+1.[CW2 Array_Demo](./CW2/ArrayDemo_m.zahidunal.html)
 
 2.[CW3_analize](./data_analiseCW3/inspector.html)
 
-3.[HW1 Course Data](./HW1Array.html)
+3.[HW1 Course Data](./HW1/HW1Array.html)
 
 4.[CW4-Class](./CW4/index.html)
 
