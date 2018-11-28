@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CachesReadData</title>
+</head>
+
+<script>
+    function readCaches(mycacheName) {
+        caches.open(mycacheName).then(c => { c.keys().then(c => mycacheData = c).then(printData) });
+    }
+    function printData() {
+
+        for (let i = 0; i < mycacheData.length; i++) {
+            fetch(mycacheData[i].url)
+                .then(u => u.blob())
+                .then(u => {
+
+                    var head = ["Type", "Size"];
+                    for (let h = 0; h < head.length; h++) {
+                        row += "<th>" + head[h] + "</th>";
+                    }
+
+
+                    let text = "<tr>" + row + "</tr>";
+
+
+
+                    row = "<td>" + u.type + "</td>";
+                    row += "<td>" + u.size + " bytes" + "</td>";
+
+                    text += "<tr>" + row + "</tr>";
+
+                   
+                    console.log(u.type, u.size);
+
+                })
+                tablo.innerHTML = text
+                ;
+        }
+    }
+</script>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th {
+        color: blue;
+        padding: 5px 5px;
+        border: 4px double mediumblue;
+    }
+
+    td {
+        border: 4px double blue;
+        padding: 5px 5px;
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <script>
+        var mycacheData = null;
+        readCaches('mz');
+    </script>
+
+    <table id="tablo"></table>
+
+</body>
+
+</html>
