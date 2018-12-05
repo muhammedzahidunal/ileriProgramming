@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title> CW9 </title>
+
+    <style>
+        svg{
+        background: cyan;
+        font: 10px arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+    <h2>Using SVG</h2>
+
+    <p>Change Color Fill: <input type="color" value="#ff0000" onchange="changeFill(this.value)"></p>
+    <p>Change Color Stroke: <input type="color" value="#ff0000" onchange="changeStroke(this.value)"></p>
+
+    
+    <p>Change Size <input type=button onclick="changesize()" style="width:55px"></p>
+
+    <p>change size rect : x = <input type=text id=x value="100" style="width:70px">
+        y = <input type=text id=y value="80" style="width:70px"></p>
+
+    <p>change rect : r =  <input type=Number id=r value="40" style="width:70px" onchange=changesizecircle()></p>
+
+
+    <svg id='svg' width='340' height='100'>
+        <circle id='myc' cx='50' cy='50' r='40' style='fill:yellow;stroke:blue;stroke-width:4' />
+        <text id='textc' x='35' y='55' fill='black'>Circle</text>
+        <rect id='myr' x='110' y='10' width='100' height='80' style='fill:pink;stroke:red;stroke-width:5' />
+        <text id='textr' x='145' y='55' fill='blue'>Rect</text>
+    </svg>
+
+
+    <script>
+        function changeFill(color) {
+            var circle = document.getElementById("myc");
+            var rect = document.getElementById("myr");
+            circle.style.fill = color;
+            rect.style.fill = color;
+        }
+
+        function changeStroke(color) {
+            var circle = document.getElementById("myc");
+            var rect = document.getElementById("myr");
+            circle.style.stroke = color;
+            rect.style.stroke = color;
+        }
+
+        function changesize() {
+            var rect = document.getElementById("myr");
+            var circle = document.getElementById("myc");
+            rect.setAttribute('width', x.value);
+            rect.setAttribute('height', y.value);
+            var svg = document.getElementById("svg");
+            
+             if (Number(r.value)*2<Number(y.value)){
+                svg.setAttribute('height', 100+Number(y.value));
+                svg.setAttribute('width', 340+Number(x.value)*2);
+            }
+            else{
+                svg.setAttribute('height', 100+Number(r.value)*2+Number(y.value)*1.2);
+                svg.setAttribute('width', 100+Number(r.value)*2+Number(x.value)*1.2);
+            }
+            
+            var tr=document.getElementById("textr");
+            tr.setAttribute('y',55+ (Number(y.value)-80)/2);
+            tr.setAttribute('x',145+Number(r.value)*2+ (Number(x.value)-100)/2);
+        }
+
+        function changesizecircle() {
+            var circle = document.getElementById("myc");
+            circle.setAttribute('r', r.value);
+            circle.setAttribute('cx', 50+ Number(r.value));
+            circle.setAttribute('cy', 50+ Number(r.value));
+            var tc=document.getElementById("textc");
+            tc.setAttribute('x',35+ Number(r.value));
+            tc.setAttribute('y',50+ Number(r.value));
+            
+            var svg= document.getElementById("svg");
+            svg.setAttribute('width', 340 + Number(r.value)*2+Number(x.value)/2);
+            svg.setAttribute('height', 100 + Number(r.value)*2+Number(y.value)/2);
+            
+            var rect= document.getElementById("myr");
+            rect.setAttribute('x',110+ Number(r.value)*2);
+
+
+            var tr=document.getElementById("textr");
+            tr.setAttribute('x',145+Number(r.value)*2);
+        
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
